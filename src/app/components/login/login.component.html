@@ -1,0 +1,80 @@
+<!-- <div class="font-type">
+  <body>
+  <header>
+    <article class="toolbar">
+      <img [routerLink]="['/home']" class="toolbar__img" src="assets/img/image2vector.svg" alt="reapay.io">
+      <div>
+        <div class="toolbar__btn">
+          <button [routerLink]="['/sign-up']">SIGN UP</button>
+        </div>
+      </div>
+    </article>
+  </header>
+  <main>
+    <div class="login">
+      <h1 *ngIf="userTypeSelected.roleType!=='Select role'">Login into your {{userTypeSelected.roleType}} account</h1>
+      <h1 *ngIf="userTypeSelected.roleType==='Select role'">Login into your {{roleText}} account</h1>
+      <div class="login__wrapper">
+        <div class="login__invalid">
+          <h5>{{invalidUser}}</h5>
+          <h5>{{error}}</h5>
+        </div>
+        <div class="row pilot__info individual">
+          <label for="userType">User Type</label>
+          <div *ngIf="userTypeSelected != null">
+            <select id="userType" class="js-example-basic-single" [(ngModel)]="userTypeSelected">
+              <option *ngFor="let x of userTypes" [ngValue]="x">{{x.roleType}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div *ngIf="userTypeSelected.roleType!=='Select role'">
+          <div class="login__item login__email">
+            <input type="text"
+                   [(ngModel)]="loginDetails.email"
+                   placeholder="E-mail">
+          </div>
+          <div class="login__item login__password">
+            <input type="password"
+                   [(ngModel)]="loginDetails.password"
+                   placeholder="Password">
+          </div>
+          <div class="login__submit">
+            <button (click)="login()">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  </body>
+</div> -->
+
+<div class="mainContainer text-white">
+  <div class="header f-18">
+    reapay.io
+  </div>
+  <div class="subtitle content-3">
+      <div class="px-30">
+        <div class="f-18">
+          Log in to your account.
+        </div>
+      </div>
+      <div class="px-30 mt-30">
+        <div class="f-18 mt-5">Email</div>
+        <input class="login-detail" id="email" type="text" [(ngModel)]="loginDetails.email" placeholder="Please input email" />
+      </div>
+      <div class="px-30">
+        <div class="f-18 mt-5">Password</div>
+        <input class="login-detail" id="password" type="password" [(ngModel)]="loginDetails.password" placeholder="**************" />
+      </div>
+      <div class="px-30 mt-30 login__submit">
+        <div class="btn-blue text-center" (click)="login()">Log in</div>
+      </div>
+      <div class="login__wrapper">
+        <div class="login__invalid">
+          <h5>{{invalidUser}}</h5>
+          <h5>{{error}}</h5>
+        </div>
+      </div>
+  </div>
+</div>

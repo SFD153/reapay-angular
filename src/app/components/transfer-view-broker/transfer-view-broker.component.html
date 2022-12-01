@@ -1,0 +1,121 @@
+<div class="font-type">
+  <header>
+    <article class="toolbar">
+      <img [routerLink]="['/home']" class="toolbar__img" src="assets/img/image2vector.svg" alt="reapay.io">
+      <div class="toolbar__btn">
+                    <span>
+                        <button [routerLink]="['/dashboard']">dashboard</button>
+                    </span>
+        <button>log out</button>
+      </div>
+    </article>
+  </header>
+  <main>
+    <article class="review">
+      <h1>REVIEW AND SEND</h1>
+      <section class="review__top">
+        <h4 class="review__top_title">RECIPIENT INFORMATION</h4>
+        <div class="review__top_item">
+          <span>Name:</span>
+          <span>{{realtorUser.userName}}</span>
+        </div>
+        <div class="review__top_item">
+          <span>Payable To:</span>
+          <span>{{transaction.realtorDisbursementList[0].receiverName}}</span>
+        </div>
+        <div class="review__top_item">
+          <span>Scheduled Funding:</span>
+          <span>{{transaction.transactionDetails.closingDate}}</span>
+        </div>
+        <div class="review__top_item review__top_item--action">
+          <span>Funding:</span>
+          <span>Pick up a check at closing <a href="#" class="">Change</a></span>
+        </div>
+        <div class="review__top_item">
+          <span>Phone:</span>
+          <span>{{realtorUser.phoneNumber}}</span>
+        </div>
+        <div class="review__top_item">
+          <span>Email:</span>
+          <span>{{transaction.realtorEmail}}</span>
+        </div>
+      </section>
+      <section class="review__top">
+        <h4 class="review__top_title">BROKER AND CLOSER</h4>
+        <div class="review__top_item">
+          <span>BrokerCompany Name:</span>
+          <span>{{transaction.brokerDisbursementList[0].receiverName}}</span>
+        </div>
+        <div class="review__top_item">
+          <span>BrokerCompany Email:</span>
+          <span>{{transaction.brokerEmail}}</span>
+        </div>
+        <div class="review__top_item">
+          <span>Closer Name:</span>
+          <span>{{realtorUser.closerName}}</span>
+        </div>
+        <div class="review__top_item">
+          <span>Closer Email:</span>
+          <span>{{realtorUser.closerEmail}}</span>
+        </div>
+      </section>
+      <section class="review__transition">
+        <h4 class="review__top_title">TRANSACTION DETAILS</h4>
+        <div class="review__top_item">
+          <span>Name:</span>
+          <span>{{realtorUser.userName}}</span>
+        </div>
+        <div class="review__top_item">
+          <span>Scheduled Funding:</span>
+          <span>{{transaction.transactionDetails.closingDate}}</span>
+        </div>
+        <div class="review__top_item">
+          <span>Phone:</span>
+          <span>{{realtorUser.phoneNumber}}</span>
+        </div>
+      </section>
+      <section class="review__bottom">
+        <div *ngFor="let x of transaction.realtorDisbursementList" class="review__bottom_item">
+          <div>
+            <span>{{x.detailsPayment}}</span>
+            <span>${{x.amount}}</span>
+          </div>
+          <div>
+            <span>A check of ${{x.amount}} will be give {{x.receiverName}} following close of escrow.</span>
+            <span></span>
+          </div>
+        </div>
+        <div *ngFor="let x of transaction.brokerDisbursementList" class="review__bottom_item">
+          <div>
+            <span>{{x.detailsPayment}}</span>
+            <span>${{x.amount}}</span>
+          </div>
+          <div>
+            <span>A check of ${{x.amount}} will be give {{x.receiverName}} following close of escrow.</span>
+            <span></span>
+          </div>
+        </div>
+        <div class="review__bottom_item">
+          <div>
+            <span>Fee:</span>
+            <span>$0</span>
+          </div>
+          <div>
+            <span>$0 is charged to {{transaction.brokerDisbursementList[0].receiverName}}</span>
+          </div>
+        </div>
+      </section>
+      <section class="review__submit">
+        <div>
+          <input [(ngModel)]="checked" type="radio" name="pilot-type"
+                 value="true" id="po-company" checked="checked"/>
+          <span>As Broker or authorized of {{realtorUser.brokerName}}, the undersigned, authorize, {{realtorUser.userName}} from {{realtorUser.company}} to execute the above disbursements on {{transaction.transactionDetails.closingDate}} following successful close of escrow as referenced above</span>
+        </div>
+        <span>{{error}}</span>
+        <form action="#" class="review__submit_item" method="" autocomplete="off">
+          <input type="submit" value="Approve" (click)="approve()">
+        </form>
+      </section>
+    </article>
+  </main>
+</div>

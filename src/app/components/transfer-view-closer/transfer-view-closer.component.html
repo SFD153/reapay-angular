@@ -1,0 +1,87 @@
+<div class="font-type">
+  <header>
+    <article class="toolbar">
+      <img [routerLink]="['/home']" class="toolbar__img" src="assets/img/image2vector.svg" alt="reapay.io">
+      <div class="toolbar__btn">
+                    <span>
+                        <button [routerLink]="['/dashboard']">dashboard</button>
+                    </span>
+        <button>log out</button>
+      </div>
+    </article>
+  </header>
+  <main>
+    <article class="review">
+      <h1>REVIEW AND SEND</h1>
+      <section class="review__top">
+        <h4 class="review__top_title">RECIPIENT INFORMATION</h4>
+        <div class="review__top_item">
+          <div (click)="downloadPDF()">Create PDF</div>
+          <a *ngIf="url!=='#'" href="{{ url }}" >Download PDF</a>
+          <div>{{error}}</div>
+          <div>
+            <span>Transaction Id:</span>
+            <span>{{transactionText.transactionId}}</span>
+          </div>
+          <span>Closer Company:</span>
+          <span>{{transactionText.closerCompanyName}}</span>
+
+          <div>
+            <span>Closer Address:</span>
+            <span>{{transactionText.closerCompanyAddress}}</span>
+          </div>
+          <div>
+            <span>Closer Name:</span>
+            <span>{{transactionText.closerName}}</span>
+          </div>
+          <div>
+            <span>Closer Phone:</span>
+            <span>{{transactionText.closerPhone}}</span>
+          </div>
+          <div>
+            <span>Schedule Closing:</span>
+            <span>{{transactionText.closingDate}}</span>
+          </div>
+          <div>
+            <span>Agent:</span>
+            <span>{{transactionText.realtorName}}</span>
+          </div>
+          <div>
+            <span>Broker:</span>
+            <span>{{transactionText.brokerCompanyName}}</span>
+          </div>
+          <div>
+            <span>MLS #:</span>
+            <span>{{transactionText.mls}}</span>
+          </div>
+          <div>
+            <span>Property Address:</span>
+            <span>{{transactionText.propertyAddress}}</span>
+          </div>
+        </div>
+      </section>
+      <section class="review__bottom">
+        <div class="review__bottom_item">
+          <span>{{transactionText.firstParagraph}}</span>
+        </div>
+        <div class="review__bottom_item">
+          <span>{{transactionText.secondParagraph}}</span>
+        </div>
+        <div class="review__bottom_item">
+          <span>{{transactionText.thirdParagraph}}</span>
+        </div>
+        <div class="review__bottom_item">
+          <span>{{transactionText.fourthParagraph}}</span>
+        </div>
+        <div class="review__bottom_item">
+          <span>{{transactionText.fifthParagraph}}</span>
+        </div>
+      </section>
+      <section class="review__submit">
+        <form action="#" class="review__submit_item" method="" autocomplete="off">
+          <input type="submit" value="Closing" (click)="closing()">
+        </form>
+      </section>
+    </article>
+  </main>
+</div>

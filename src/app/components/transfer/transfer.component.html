@@ -1,0 +1,96 @@
+<div class="font-type">
+  <body>
+  <header>
+    <article class="toolbar">
+      <img [routerLink]="['/home']" class="toolbar__img" src="assets/img/image2vector.svg" alt="reapay.io">
+      <div class="toolbar__btn">
+            <span>
+                <button [routerLink]="['/dashboard']">dashboard</button>
+            </span>
+        <button>log out</button>
+      </div>
+    </article>
+  </header>
+  <main>
+    <div class="step">step 1/3</div>
+    <article class="authorization">
+      <h1>Tell us about your closing</h1>
+      <h5>{{error}}</h5>
+      <section class="authorization__top">
+        <h4>TRANSACTION DETAILS</h4>
+        <div class="autorization__mls authorization__item">
+          <label for="mls">MLS#</label>
+          <input [(ngModel)]="transaction.transactionDetails.mls" type="text" name="mls" id="mls" value="502034565">
+        </div>
+        <div class="autorization__propaddress  authorization__item">
+          <label for="propaddress">Property Address</label>
+          <input [(ngModel)]="transaction.transactionDetails.propertyAddress" type="text" name="propaddress"
+                 id="propaddress" value="43565 Copperstone Street…">
+        </div>
+        <div class="autorization__closingdate  authorization__item">
+          <label for="closingdate">Closing Date</label>
+          <input [(ngModel)]="transaction.transactionDetails.closingDate" type="date" name="closingdate"
+                 id="closingdate">
+        </div>
+        <div class="autorization__finalprice  authorization__item">
+          <label for="finalprice">Final Price</label>
+          <input [(ngModel)]="transaction.transactionDetails.finalPrice" type="text" name="finalprice" id="finalprice"
+                 value="$326,500">
+        </div>
+        <div class="pilot__options authorization">
+          <h4 class="pilot__header">{{currentUserName }} Is Representing</h4>
+          <label class="pilot__option authorization">
+            <input [(ngModel)]="transaction.transactionDetails.realtorIsRepresenting" type="radio" name="pilot-type"
+                   value="BUYER" id="po-company" checked="checked"/>
+            <span>Buyer</span>
+          </label>
+          <label class="pilot__option authorization">
+            <input [(ngModel)]="transaction.transactionDetails.realtorIsRepresenting" type="radio" name="pilot-type"
+                   value="SELLER" id="po-individual"/>
+            <span>Seller</span>
+          </label>
+          <label class="pilot__option authorization">
+            <input [(ngModel)]="transaction.transactionDetails.realtorIsRepresenting" type="radio" name="pilot-type"
+                   value="DUAL" id="po-realtor"/>
+            <span>Dual</span>
+          </label>
+        </div>
+        <h4>REALTOR DISBURSEMENT</h4>
+        <div>
+          <div *ngFor="let realtorDisbursement of realtorDisbursementList; let i = index;trackBy:trackByIdx"
+               class="autorization__commision  authorization__item">
+            <input style="font-size: 11px" [(ngModel)]="realtorDisbursementList[i].detailsPayment">
+            <input style="font-size: 11px" [(ngModel)]="realtorDisbursementList[i].receiverName">
+            <input style="font-size: 11px" [(ngModel)]="realtorDisbursementList[i].amount" type="text">
+            <span *ngIf="i >=1" (click)="deleteRealtorDisbursement(i)">x</span>
+          </div>
+        </div>
+        <div class="authorization__add" (click)="addRealtorDisbursement()">Add Line Item +</div>
+        <h4>BROKER DISBURSEMENT</h4>
+        <div>
+          <div *ngFor="let brokerDisbursement of brokerDisbursementList; let i = index;trackBy:trackByIdx"
+               class="autorization__commision_double  authorization__item">
+            <input style="font-size: 11px" [(ngModel)]="brokerDisbursementList[i].detailsPayment">
+            <input style="font-size: 11px" [(ngModel)]="brokerDisbursementList[i].receiverName">
+            <input style="font-size: 11px" [(ngModel)]="brokerDisbursementList[i].amount" type="text">
+            <span *ngIf="i >=2" (click)="deleteBrokerDisbursement(i)">x</span>
+          </div>
+        </div>
+        <div class="authorization__add" (click)="addBrokerDisbursement()">Add Line Item +</div>
+        <div class="authorization__info">
+          <a href="#">Commission Breakdown</a>
+          <input [(ngModel)]="transaction.commissionBreakdown">
+        </div>
+      </section>
+      <section class="authorization__bottom">
+        <div class="authorization__submit">
+          <input type="submit" value="SAVE & CONTINUE" (click)="completeFirstStep()">
+        </div>
+        <div class="authorization__last">
+          You can edit the transaction details from the dashboard at anytime prior to close of escrow.
+        </div>
+      </section>
+    </article>
+  </main>
+  </body>
+</div>

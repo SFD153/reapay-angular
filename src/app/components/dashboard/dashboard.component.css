@@ -1,0 +1,1328 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Helvetica Neue Regular'), url('src/assets/HelveticaNeueBold.woff') format('woff');
+}
+
+.font-type {
+  font-family: 'Helvetica Neue Regular', serif;
+}
+
+a:hover {
+  opacity: .8;
+}
+input[type='submit']:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+button:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+html {
+  min-height: 100vh;
+  height: 100%;
+  overflow-x: hidden;
+}
+body {
+  /* height: auto;
+  min-height: 100vh; */
+  color: #292f45;
+  background-color: #3A546A;
+  font-family: 'Barlow', sans-serif;
+}
+/*TODO Realtors header block*/
+header {
+  background-color: #fffeee;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.toolbar {
+  width: 100%;
+  max-width: 1024px;
+  height: 76px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: 214px max-content;
+  grid-template-areas:
+    'toolbar__img toolbar__btn';
+}
+.toolbar__img {
+  width: 214px;
+  grid-area: toolbar__img;
+}
+.toolbar__btn button {
+  font-family: 'Barlow', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  min-width: 82px;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  grid-area: toolbar__btn;
+  color: #3A546A;
+}
+.toolbar__btn span {
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #3A546A;
+  margin-right: 20px;
+}
+
+main {
+  background-color: #3A546A;
+}
+.slogan {
+  width: 100%;
+  max-width: 1024px;
+  margin-top: 46px;
+  padding-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.slogan a {
+  color: #3A546A;
+}
+.slogan__item {
+  display: block;
+}
+
+.slogan__first {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.slogan__second {
+  font-size: 24px;
+  font-weight: 300;
+}
+.slogan__btn {
+  width: 214px;
+  height: 51px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fffeee;
+  text-transform: uppercase;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3A546A;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/*TODO Realtors main annotation block*/
+.annotation {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 89px;
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 70px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  color: #fffeee;
+  font-size: 18px;
+}
+.annotation__img {
+  margin-left: -10px;
+  width: 60px;
+}
+.annotation__item_double {
+  grid-column: 1/span 2;
+}
+.annotation__dollar {
+  margin-left: 0;
+  width: 28px;
+}
+.annotation__heart {
+  margin-left: 0;
+  width: 28px;
+}
+.annotation__item {
+  padding-left: 10px;
+}
+.annotation__item h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+@media only screen and (max-width: 1024px) {
+  .annotation {
+    justify-content: center;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  .annotation__item_double {
+    grid-column: 1;
+    grid-row-start: 2;
+
+  }
+}
+@media only screen and (max-width: 550px) {
+  .annotation {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+  }
+  .toolbar {
+    justify-content: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 20px;
+    grid-template-areas:
+        'toolbar__img'
+        'toolbar__btn';
+    height: 150px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  header {
+    text-align: justify;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .toolbar__img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .toolbar__btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .annotation p {
+    text-align: justify;
+  }
+  .slogan__btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.logout{
+  float:left;
+}
+.settings{
+  float:left;
+}
+/*TODO Realtors login block*/
+.form {
+  display: block;
+  padding-top: 40px;
+  width: 100%;
+  max-width: 324px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fffeee;
+}
+.form.pilot {
+  max-width: 100%;
+}
+.form.pilot .select2-container--default .select2-selection--single {
+  border: none;
+  height: 25px;
+}
+.form.pilot .select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 25px;
+}
+.pilot__wrapper {
+  width: 100%;
+  max-width: 324px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.login {
+  /*max-width: 324px;*/
+  /*width: 100%;*/
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
+}
+.login h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: #fffeee;
+  margin-top: 40px;
+}
+.form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+.login__wrapper {
+  width: 100%;
+  max-width: 324px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.login__item {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: auto 10fr;
+  grid-template-areas:
+    'label input';
+  width: 100%;
+  height: 27px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+.login__item label {
+  color: #3A546A;
+  grid-area: label;
+  font-size: 14px;
+  padding-left: 20px;
+}
+.login__item input {
+  margin-left: 10px;
+  margin-right: 10px;
+  grid-area: input;
+  color: #ccc;
+  padding-left: 10px;
+  background-color: #fff;
+  border: none;
+  padding-right: 10px;
+}
+
+.login__item input::placeholder {
+  color: #ccc;
+}
+.login input[type='submit'] {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fffeee;
+  border-radius: 5px;
+  margin-top: 20px;
+  border: none;
+  height: 27px;
+  width: 100%;
+  background-color: #AFCED0;
+}
+
+.login__email {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+.login__password {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+@media only screen and (max-width: 450px) {
+  header {
+    display: flex;
+    align-items: center;
+    height: 160px;
+  }
+}
+/*TODO Realtors signup block*/
+.pilot h1 {
+  text-align: center;
+}
+.pilot__options {
+  margin-bottom: 20px;
+}
+.pilot__header {
+  display: block;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+.pilot__option {
+  display: block;
+  margin-bottom: 5px;
+}
+.pilot__option input + span {
+  display: flex;
+  position: relative;
+  align-items: center;
+  color: #FFFEEE;
+  font-size: 15px;
+  font-weight: 500;
+}
+.pilot__option input + span:before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  top: -1px;
+  left: -3px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.pilot__option input:checked + span:after {
+  content: '';
+  display: flex;
+  position: absolute;
+  top: 5px;
+  right: calc(100% - 5px);
+  width: 6px;
+  height: 6px;
+  background: #AECED1;
+  border-radius: 6px;
+}
+.pilot__option input[type='radio'] {
+  display: none;
+}
+.pilot__info {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: auto 200px;
+  border-radius: 7px;
+  grid-template-areas:
+    'label input';
+  width: 100%;
+  height: 27px;
+  margin-bottom: 1px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #3A546A;
+  padding-left: 14px;
+  font-size: 14px;
+}
+.pilot__info input {
+  border: none;
+  padding-left: 10px;
+  height: 22px;
+}
+.pilot input[type='submit'] {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  height: 27px;
+  background-color: #AFCED0;
+  color: #FFFEEE;
+  font-size: 16px;
+  font-weight: 700;
+}
+/*TODO Realtors dashboard block*/
+.details__wrapper {
+  background-color: #F6F9FC;
+  width: 100%;
+  min-height: calc(100vh - 106px);
+}
+.details {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1024px;
+
+}
+.verify {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 30px;
+  color: #fff;
+  font-size: 24px;
+  line-height: 30px;
+  background-color: #ff687c;
+  font-weight: 600;
+  font-family: 'Barlow', sans-serif;
+}
+.verify a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 400;
+}
+.verify div {
+  max-width: 1024px;
+  width: 100%;
+}
+.payment {
+  display: grid;
+  width: 100%;
+  max-width: 1024px;
+  justify-content: space-between;
+  grid-template-columns: 250px 1fr;
+  grid-gap: 200px;
+  color: #3A546A;
+  background-color: #F6F9FC;
+}
+.payment__user {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.payment__user img {
+  grid-row: 1 / span 2;
+}
+.payment__user_status {
+  font-size: 14px;
+}
+.payment__user_name {
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.payment__details {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.payment__item span {
+  display: block;
+}
+.payment__item span:first-child {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.payment__item span:nth-child(2),
+.payment__item span:nth-child(3) {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.payment__item span:nth-child(4) {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: .5;
+}
+.payment__details input[type='submit'] {
+  width: 154px;
+  height: 44px;
+  border: none;
+  background-color: #fff;
+  border-radius: 7px;
+  box-shadow: 0 0 5px #3A546A;
+  color: #707070;
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: auto;
+  margin-bottom: 16px;
+}
+.payment__details input[type='submit'] + a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #27A175;
+  font-size: 12px;
+  text-transform: capitalize;
+  text-align: right;
+  margin-left: 6px;
+}
+.payment__details input[type='submit']:hover {
+  box-shadow: 0 0 2px #3A546A;
+  opacity: 1;
+}
+.approved {
+  display: grid;
+  grid-row-gap: 15px;
+  margin-bottom: 46px;
+}
+.approved h4 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #3A546A;
+}
+.approved__item a {
+  font-size: 14px;
+  font-weight: 300;
+  color: #3A546A;
+}
+
+.approved__item a:hover {
+  opacity: .8;
+}
+.approved__item_approved {
+  color: #18B118;
+}
+.approved__item_pending {
+  color: #FF0000;
+}
+.approved__item_complele {
+  color: #0062FF;
+}
+.getpaid {
+  font-family: 'Barlow', sans-serif;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.getpaid h1 {
+  margin-top: 65px;
+  margin-bottom: 40px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  color: #3A546A;
+}
+.getpaid__item {
+  display: flex;
+  width: 100%;
+  max-width: 374px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.getpaid__btn {
+  width: 100%;
+  max-width: 374px;
+}
+.getpaid__btn button:hover {
+  box-shadow: 0px 1px 2px #00000029;
+}
+.getpaid__btn button {
+  white-space: nowrap;
+  width: 100%;
+  max-width: 374px;
+  height: 27px;
+  padding-left: 30px;
+  padding-right: 30px;
+  /*background-color: #E6EBF1;*/
+  border: none;
+  border-radius: 5px;
+  font: Bold 14px/16px SF Pro Display;
+  letter-spacing: 0px;
+  color: #FFFEEE;
+  opacity: 1;
+  text-transform: uppercase;
+  background: #AFCED0 0% 0% no-repeat padding-box;
+  box-shadow: 0px 2px 3px #00000029;
+}
+@media only screen and (max-width: 1024px) {
+  .payment {
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    grid-gap: 20px;
+  }
+  .verify {
+    width: 100%;
+    height: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+  }
+
+  .payment__user {
+    justify-content: center;
+  }
+  .payment__details {
+    justify-content: center;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .payment__user img {
+    margin-right: 10px;
+  }
+  .approved {
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .getpaid {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  body {
+    background-color: #F6F9FC;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .payment {
+    grid-template-rows: 60px 1fr;
+  }
+  .payment__details {
+    justify-content: center;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr;
+  }
+  .payment__item {
+    text-align: center;
+  }
+  .payment__send {
+    display: grid;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/*TODO Realtors eltransfer block*/
+.step {
+  font-size: 10px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  color: #fffeee;
+  text-transform: uppercase;
+}
+.authorization {
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fffeee;
+}
+.authorization span img {
+  width: 15px;
+}
+.authorization h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 32px;
+  font-weight: 400;
+  width: 100%;
+}
+.authorization h4 {
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.authorization__item {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: auto 200px;
+  width: 100%;
+  height: 27px;
+  margin-bottom: 1px;
+  background-color: #fff;
+  color: #3A546A;
+  padding-left: 14px;
+  font-size: 14px;
+}
+.authorization__item input {
+  font-family: 'Barlow', sans-serif;
+  color: #3A546A;
+  border: none;
+  padding-right: 20px;
+}
+.autorization__mls {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.autorization__closingdate {
+  grid-template-columns: 1fr 1fr;
+}
+
+.autorization__closingdate input[type="date"] {
+  width: 200px;
+  background: #fff url('/src/assets/img/calendar.svg') 90% 50% no-repeat;
+}
+.autorization__closingdate input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+.autorization__closingdate input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+.autorization__finalprice {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+.authorization__submit {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: end;
+  height: 27px;
+  margin-bottom: 10px;
+}
+.authorization__submit input {
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
+  background-color: #AFCED0;
+  color: #FFFEEE;
+  text-transform: uppercase;
+  height: 27px;
+  border: none;
+}
+
+.authorization__top,
+.authorization__bottom {
+  display: grid;
+  max-width: 373px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.authorization__bottom_item {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: 100px 120px 90px;
+  grid-template-areas:
+    'label input';
+  width: 100%;
+  height: 27px;
+  margin-bottom: 1px;
+  background-color: #fff;
+  color: #3A546A;
+  padding-left: 14px;
+  padding-right: 20px;
+  font-size: 14px;
+}
+.authorization__bottom_item input {
+  color: #3A546A;
+  border: none;
+}
+.authorization__bottom_item:nth-child(2) {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+.authorization__bottom_item:nth-child(3) {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  margin-bottom: 5px;
+}
+.authorization__bottom_item:nth-child(4) {
+  grid-template-columns: 1fr;
+  border-radius: 7px;
+}
+.pilot__options.authorization {
+  margin-top: 10px;
+  display: grid;
+  grid-column-gap: 16px;
+  grid-template-columns: 135px 1fr 1fr 1fr;
+  padding-right: 40px;
+  margin-bottom: 0;
+}
+.pilot__options.authorization h4 {
+  text-transform: none;
+  font-size: 14px;
+}
+.autorization__commision {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: 100px 120px 90px;
+  grid-template-areas:
+    'label input';
+  width: 100%;
+  height: 27px;
+  margin-bottom: 1px;
+  background-color: #fff;
+  color: #3A546A;
+  padding-left: 14px;
+  padding-right: 20px;
+  font-size: 14px;
+  border-radius: 7px;
+}
+.authorization__add {
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.authorization__add:hover {
+  opacity: .8;
+}
+.autorization__commision_double {
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 100px 120px 90px;
+  height: 54px;
+  border-radius: 7px;
+}
+.authorization__info {
+  border-radius: 7px;
+  width: 100%;
+  background-color: #fff;
+  color: #3A546A;
+  height: 76px;
+  padding-left: 14px;
+  padding-top: 6px;
+  margin-bottom: 20px;
+}
+.authorization__info span {
+  display: block;
+  font-size: 14px;
+  opacity: .38;
+}
+.authorization__info a {
+  font-size: 14px;
+  color: #3A546A;
+  margin-bottom: 10px;
+}
+.authorization__last {
+  font-size: 12px;
+}
+@media only screen and (max-width: 1920px) {
+  main {
+    margin-top: -10px;
+    height: calc(100vh - 76px);
+  }
+  .step {
+    padding-top: 10px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .authorization__top {
+    width: 100%;
+  }
+  .authorization__item {
+    width: 330px;
+  }
+  .authorization__info {
+    width: 330px;
+  }
+  .authorization__submit {
+    width: 330px;
+  }
+  .authorization__last {
+    width: 330px;
+  }
+}
+/*TODO Realtors eltransferreview block*/
+.review {
+  display: block;
+  max-width: 520px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fffeee;
+  margin-top: 25px;
+  font-family: 'Barlow', sans-serif;
+}
+.review h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+.review__top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.review__top h4 {
+  margin-bottom: 15px;
+  text-decoration: underline;
+}
+.review__transition {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: min-content 1fr;
+}
+.review__transition h4 {
+  grid-column: 1 / span 3;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+.review__top_title {
+  font-size: 16px;
+  font-weight: 300;
+  grid-column: 1 / span 2;
+}
+.review__top_item {
+  font-size: 16px;
+  text-transform: capitalize;
+  min-width: 115px;
+  min-height: 38px;
+  margin-bottom: 15px;
+}
+.review__top_item.review__top_item--action span {
+  display: flex;
+  align-items: center;
+}
+.review__top_item.review__top_item--action span a {
+  margin-left: 5px;
+  text-decoration: underline;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 12px;
+  color: #AFCED0;
+}
+.review__top_item span {
+  display: block;
+}
+.review__top_item span:nth-child(1) {
+  font-weight: 300;
+}
+.review__top_item span:nth-child(2) {
+  font-weight: 700;
+}
+.review__bottom {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+}
+.review__bottom_item {
+  background-color: #FFFEEE;
+  color: #3A546A;
+  border-radius: 10px;
+  display: grid;
+  grid-gap: 50px;
+  padding-left: 44px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  align-items: center;
+  grid-template-columns: 2fr 10fr;
+}
+.review__bottom_item span {
+  /*display: grid;*/
+  align-items: center;
+}
+.review__bottom_item span u {
+  display: inline-block;
+}
+.review__bottom_item span:last-child {
+  grid-template-columns: max-content auto;
+  font-weight: 700;
+}
+.review__bottom_item span:last-child a {
+  margin-left: 10px;
+  font-weight: 300;
+  font-size: 10px;
+  color: #3A546A;
+  display: inline-grid;
+  align-self: center;
+  height: 16px;
+}
+.review__submit form {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 258px 258px;
+  grid-gap: 5px;
+}
+.review__submit form input {
+  margin-top: 25px;
+  height: 60px;
+  border-radius: 5px;
+  border: none;
+  background-color: #AFCED0;
+  color: #fffeee;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 1024px) {
+  .review {
+    margin-top: -10px;
+    height: calc(100vh - 160px);
+  }
+}
+@media only screen and (max-width: 550px) {
+  .review {
+    padding-top: 20px;
+    width: 70%;
+  }
+  .review__bottom_item {
+    width: 330px;
+    padding-left: 20px;
+    grid-gap: 10px;
+  }
+  .review__submit form {
+    grid-template-columns: 120px 120px;
+    justify-content: space-between;
+  }
+
+}
+/*TODO BrokerCompany and Closer Details*/
+.detailstep {
+  font-family: 'Barlow', sans-serif;
+  color: #fffeee;
+}
+.detailstep h1 {
+  color: #fffeee;
+  font-size: 32px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.detailstep__from {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.detailstep__item label span {
+  margin-bottom: 13px;
+}
+.detailstep__from_item {
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 323px 323px;
+  grid-template-rows: minmax(210px, 1fr);
+  grid-column-gap: 48px;
+}
+
+.detailstep__select {
+  width: 100%;
+  background-color: #fffeee;
+  border-radius: 7px;
+  height: 27px;
+  position: relative;
+  padding-left: 14px;
+  padding-right: 14px;
+  color: #3A546A;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #fffeee url('/src/assets/img/down-arrow.svg') 92% 50% no-repeat;
+}
+.detailstep__select::-ms-expand {
+  display: none;
+}
+.detailstep__show {
+  display: none;
+}
+.detailstep__item input:checked ~ .detailstep__show {
+  display: grid;
+}
+.detailstep__show input[type='submit'] {
+  font-family: 'Barlow', sans-serif;
+  display: flex;
+  justify-self: end;
+  width: 142px;
+  height: 27px;
+  border-radius: 5px;
+  background-color: #AFCED0;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fffeee;
+  font-weight: 700;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.detailstep__item span sup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -17px;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  background-color: #fffeee;
+  cursor: pointer;
+  position: relative;
+}
+.detailstep__item span sup img {
+  width: 14px;
+  height: 14px;
+}
+.detailstep__item span sup:hover {
+  opacity: .8;
+}
+.detailstep__item span sup + div {
+  display: none;
+  background-color: #fffeee;
+  border-radius: 7px;
+  padding: 14px 30px;
+  align-items: center;
+  min-width: 516px;
+  width: 100%;
+  max-height: 62px;
+  height: 62px;
+  color: #3A546A;
+  position: relative;
+  font-size: 12px;
+  font-weight: 300;
+}
+.detailstep__item span sup + div::before {
+  position: absolute;
+  bottom: -6px;
+  left: 80px;
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: #fffeee;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.detailstep__item span sup:hover + div {
+  display: flex;
+  position: absolute;
+  z-index: 3;
+  top: -80px;
+  left: 85px;
+}
+.detailstep__item_second span sup + div {
+  width: 537px;
+}
+.detailstep__item_second span sup + div::before {
+  left: 420px;
+}
+.detailstep__item_second span sup:hover + div {
+  left: -280px;
+  top: -80px;
+}
+.detailstep__from_submit {
+  width: 323px;
+  height: 27px;
+  /*display: none;*/
+  justify-content: center;
+  align-items: center;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: none;
+  background-color: #AFCED0;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fffeee;
+}
+@media only screen and (max-width: 550px) {
+  .detailstep {
+    background-color: #3A546A;
+  }
+  .detailstep__from_item {
+    grid-template-columns: 323px;
+    grid-template-rows: minmax(210px, 1fr) minmax(210px, 1fr);
+
+  }
+  .detailstep__from_submit {
+    margin-bottom: 20px;
+  }
+}
+
+.funds {
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
+
+.funds__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 78px;
+}
+
+.funds__header span {
+  padding-bottom: 10px;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 12px;
+  color: #FFFEEE;
+}
+
+.funds__header h1 {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38px;
+  color: #FFFEEE;
+}
+
+.funds__header p {
+  width: 100%;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFEEE;
+}
+
+.funds__form {
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.funds__form-field {
+  padding-bottom: 15px;
+}
+
+.funds__form-field--option {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+
+.funds__form-field--option > div {
+  width: 50%;
+}
+
+.funds__form-field--option > div:nth-of-type(1) {
+  padding-right: 10px;
+}
+.funds__form-field--option > div:nth-of-type(2) {
+  padding-left: 10px;
+}
+
+.funds__form-field--option label {
+  display: flex;
+  align-items: center;
+}
+
+.funds__form-field--option label input {
+  margin-right: 5px;
+}
+
+.funds__form-field--option label u {
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #FFFEEE;
+}
+
+.funds__form-field--option label u i {
+  display: block;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FD050E;
+  text-align: right;
+  font-style: normal;
+}
+
+.funds__form-field button {
+  outline: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 27px;
+  border: none;
+  background: #AFCED0 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFEEE;
+}
+
+.funds__form-field.funds__form-field--info {
+  padding-bottom: 0;
+}
+
+.funds__form-field p {
+  font-size: 12px;
+  line-height: 14px;
+  color: #FFFEEE;
+}

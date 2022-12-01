@@ -1,0 +1,104 @@
+<div class="font-type">
+  <body>
+  <header>
+    <article class="toolbar">
+      <img [routerLink]="['/home']" class="toolbar__img" src="assets/img/image2vector.svg" alt="reapay.io">
+      <div>
+        <div class="toolbar__btn">
+          <button [routerLink]="['/dashboard']">Dashboard</button>
+        </div>
+        <div class="toolbar__btn">
+          <button [routerLink]="['/home']">Log Out</button>
+        </div>
+      </div>
+    </article>
+  </header>
+  <main>
+    <div class="form pilot">
+      <h1>Update your {{roleType}} profile</h1>
+      <div class="pilot__wrapper">
+        <div>
+          <div class="login__invalid">
+            <h5>{{error}}</h5>
+          </div>
+          <div class="row pilot__info individual">
+            <label for="realtorName">Realtor Name</label>
+            <input [(ngModel)]="updateRealtorDetails.userName" type="text" name="realtorName" id="realtorName"
+                   placeholder="{{realtorUser.userName}}"/>
+          </div>
+          <div class="row pilot__info individual">
+            <label for="realtorCompany" style="font-size: 11px">Realtor Company</label>
+            <input [(ngModel)]="updateRealtorDetails.company" type="text" name="realtorName" id="realtorCompany"
+                   placeholder="{{realtorUser.company}}"/>
+          </div>
+          <div class="row pilot__info individual">
+            <label for="realtorNmls">NMLS #</label>
+            <input [(ngModel)]="updateRealtorDetails.nmls" type="text" name="realtorNmls" id="realtorNmls"
+                   placeholder="{{realtorUser.nmls}}"/>
+          </div>
+          <div class="row pilot__info individual">
+            <label for="realtorPhone">Realtor Cell</label>
+            <input [(ngModel)]="updateRealtorDetails.phoneNumber" type="text" name="realtorPhone"
+                   id="realtorPhone"
+                   placeholder="{{realtorUser.phoneNumber}}"/>
+          </div>
+          <br>
+          <br>
+          <h4 style="text-align: center">Broker</h4>
+          <div class="row pilot__info individual">
+            <label for="realtorBrokerCompany">BrokerCompany</label>
+            <div *ngIf="brokerSelected != null">
+              <select id="realtorBrokerCompany" class="js-example-basic-single" [(ngModel)]="brokerSelected">
+                <option *ngFor="let x of brokers" [ngValue]="x">{{x.brokerName}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="row pilot__info individual">
+            <label for="brokerName" style="font-size: 12px">Managing Broker</label>
+            <input [(ngModel)]="updateRealtorDetails.managingBroker" type="text" name="realtorName" id="brokerName"
+                   placeholder="{{realtorUser.managingBroker}}"/>
+          </div>
+          <div class="row pilot__info individual">
+            <label for="brokerEmail" style="font-size: 11px">MNG Broker Email</label>
+            <input [(ngModel)]="updateRealtorDetails.brokerEmail" type="text" name="realtorName" id="brokerEmail"
+                   placeholder="{{realtorUser.brokerEmail}}"/>
+          </div>
+          <div class="row pilot__info individual">
+            <label for="brokerPhoneNumber" style="font-size: 11px">MNG Broker Phone</label>
+            <input [(ngModel)]="updateRealtorDetails.brokerPhoneNumber" type="text" name="realtorName" id="brokerPhoneNumber"
+                   placeholder="{{realtorUser.brokerPhoneNumber}}"/>
+          </div>
+          <br>
+          <br>
+          <h4 style="text-align: center">Closer</h4>
+          <div class="row pilot__info individual">
+            <label for="closerBrokerCompany">Title Company</label>
+            <div *ngIf="brokerSelected != null">
+              <select id="closerBrokerCompany" class="js-example-basic-single" [(ngModel)]="closerCompanySelected">
+                <option *ngFor="let x of closers" [ngValue]="x">{{x.closerCompanyName}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="row pilot__info individual">
+            <label for="closerName" style="font-size: 12px">Closer Name</label>
+            <input [(ngModel)]="updateRealtorDetails.closerName" type="text" name="realtorName" id="closerName"
+                   placeholder="{{realtorUser.closerName}}"/>
+          </div>
+          <div class="row pilot__info individual">
+            <label for="closerEmail" style="font-size: 11px">Closer Email</label>
+            <input [(ngModel)]="updateRealtorDetails.closerEmail" type="text" name="realtorName" id="closerEmail"
+                   placeholder="{{realtorUser.closerEmail}}"/>
+          </div>
+          <div class="row pilot__info individual">
+            <label for="closerPhoneNumber" style="font-size: 12px">Closer Phone</label>
+            <input [(ngModel)]="updateRealtorDetails.closerPhoneNumber" type="text" name="realtorName" id="closerPhoneNumber"
+                   placeholder="{{realtorUser.closerPhoneNumber}}"/>
+          </div>
+        </div>
+        <input class="pilot__submit" type="submit" value="Continue" (click)="updateRealtor()"/>
+      </div>
+
+    </div>
+  </main>
+  </body>
+</div>

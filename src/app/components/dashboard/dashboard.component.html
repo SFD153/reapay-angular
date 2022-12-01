@@ -1,0 +1,147 @@
+<div class="font-type">
+  <body>
+  <header>
+    <article class="toolbar">
+      <img [routerLink]="['/home']" class="toolbar__img" src="assets/img/image2vector.svg" alt="reapay.io">
+      <div class="toolbar__btn">
+        <div class="logout">
+          <button (click)="logout()">log out</button>
+        </div>
+        <div *ngIf="currentRealtorUser.userName" class="settings">
+          <img [routerLink]="['/home']" class="toolbar__img" src="assets/img/settings.svg" height="25" alt="reapay.io"
+               (click)="updateDetailsRealtorUser()">
+        </div>
+      </div>
+    </article>
+  </header>
+  <main>
+    <div *ngIf="currentRealtorUser.userName">
+      <div *ngIf="currentRealtorUser.errorMessage==='Email not confirmed'" class="verify">
+        <div>Your account needs to be verified, check email!</div>
+      </div>
+      <article class="details__wrapper">
+        <section class="details">
+          <form class="form payment" action="#">
+            <div class="payment__user">
+              <img src="../../../assets/img/avatar-large.svg" alt="Avatar">
+              <span class="payment__user_status">Reapay user since April 2020</span>
+              <span class="payment__user_name">{{currentRealtorUser.userName}}</span>
+            </div>
+            <div *ngIf="currentRealtorUser.errorMessage!=='Email not confirmed'" class="payment__details">
+              <div *ngFor="let x of transactionList">
+                <div class="payment__item">
+                  <span>{{currentRealtorUser.userName}}</span>
+                </div>
+                <div class="payment__item">
+                  <span>MLS #{{x.transactionDetails.mls}}</span>
+                </div>
+                <div class="payment__item">
+                  <span>Disbursement Amount: {{x.realtorDisbursementList[0].amount}}</span>
+                </div>
+                <div class="payment__item">
+                  <span>Confirmed: {{x.transactionConfirmed}}</span>
+                </div>
+                <div class="payment__item">
+                  <span>Status: {{x.status}}</span>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div *ngIf="currentRealtorUser.errorMessage!=='Email not confirmed' && canCreateTransaction" class="getpaid">
+            <h1>To collect your commission at closing click below</h1>
+            <div class="getpaid__item">
+                    <span class="getpaid__btn">
+                            <button [routerLink]="['/transfer']">
+                               GET PAID AT CLOSING
+                            </button>
+                        </span>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <div *ngIf="currentBrokerUser.userName">
+      <div *ngIf="currentBrokerUser.errorMessage==='Email not confirmed'" class="verify">
+        <div>Your account needs to be verified, check email!</div>
+      </div>
+      <article class="details__wrapper">
+        <section class="details">
+          <form class="form payment" action="#">
+            <div class="payment__user">
+              <img src="../../../assets/img/avatar-large.svg" alt="Avatar">
+              <span class="payment__user_status">Reapay user since April 2020</span>
+              <span class="payment__user_name">{{currentBrokerUser.userName}}</span>
+            </div>
+            <div *ngIf="currentBrokerUser.errorMessage!=='Email not confirmed'" class="payment__details">
+              <div *ngFor="let x of transactionList">
+                <div class="payment__item">
+                </div>
+                <div class="payment__item">
+                  <span>{{x.realtorEmail}}</span>
+                </div>
+                <div class="payment__item">
+                  <span>MLS #{{x.transactionDetails.mls}}</span>
+                </div>
+                <div class="payment__item">
+                  <span>{{x.transactionDetails.propertyAddress}}</span>
+                </div>
+                <div class="payment__item">
+                  <span>{{x.transactionDetails.closingDate}}</span>
+                </div>
+                <div class="payment__item">
+                  <span>Status: {{x.status}}</span>
+                </div>
+                <div *ngIf="x.status === 'PENDING'">
+                  <span (click)="viewTransactionAsBroker(x.transactionId)">Approve Here</span>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+      </article>
+    </div>
+    <div *ngIf="currentCloserUser.userName">
+      <div *ngIf="currentCloserUser.errorMessage==='Email not confirmed'" class="verify">
+        <div>Your account needs to be verified, check email!</div>
+      </div>
+      <article class="details__wrapper">
+        <section class="details">
+          <form class="form payment" action="#">
+            <div class="payment__user">
+              <img src="../../../assets/img/avatar-large.svg" alt="Avatar">
+              <span class="payment__user_status">Reapay user since April 2020</span>
+              <span class="payment__user_name">{{currentCloserUser.userName}}</span>
+            </div>
+            <div *ngIf="currentCloserUser.errorMessage!=='Email not confirmed'" class="payment__details">
+              <div *ngFor="let x of transactionList">
+                <div class="payment__item">
+                </div>
+                <div class="payment__item">
+                  <span>{{x.realtorEmail}}</span>
+                </div>
+                <div class="payment__item">
+                  <span>MLS #{{x.transactionDetails.mls}}</span>
+                </div>
+                <div class="payment__item">
+                  <span>{{x.transactionDetails.propertyAddress}}</span>
+                </div>
+                <div class="payment__item">
+                  <span>{{x.transactionDetails.closingDate}}</span>
+                </div>
+                <div class="payment__item">
+                  <span>Status: {{x.status}}</span>
+                </div>
+                <div *ngIf="x.status === 'ACCEPTED'">
+                  <span (click)="viewTransactionAsCloser(x.transactionId)">Close Transaction Here</span>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+      </article>
+    </div>
+
+  </main>
+  </body>
+</div>

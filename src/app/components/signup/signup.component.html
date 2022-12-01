@@ -1,0 +1,145 @@
+<div class="font-type">
+  <body>
+  <header>
+    <article class="toolbar">
+      <img [routerLink]="['/home']" class="toolbar__img" src="assets/img/image2vector.svg" alt="reapay.io">
+      <div>
+        <div class="toolbar__btn">
+          <button [routerLink]="['/login']">LOG IN</button>
+        </div>
+      </div>
+    </article>
+  </header>
+  <main>
+    <div class="form pilot">
+      <h1 *ngIf="userTypeSelected.roleType!=='Select role'">Create your {{userTypeSelected.roleType}} profile</h1>
+      <h1 *ngIf="userTypeSelected.roleType==='Select role'">Create your {{roleText}} profile</h1>
+      <div class="pilot__wrapper">
+        <div>
+          <div class="login__invalid">
+            <h5>{{error}}</h5>
+          </div>
+          <div class="row pilot__info individual">
+            <label for="userType">User Type</label>
+            <div *ngIf="userTypeSelected != null">
+              <select id="userType" class="js-example-basic-single" [(ngModel)]="userTypeSelected">
+                <option *ngFor="let x of userTypes" [ngValue]="x">{{x.roleType}}</option>
+              </select>
+            </div>
+          </div>
+          <div *ngIf="userTypeSelected.roleType==='REALTOR'">
+            <div class="row pilot__info individual">
+              <label for="realtorName">Realtor Name</label>
+              <input [(ngModel)]="createRealtorUserDetails.userName" type="text" name="realtorName" id="realtorName"
+                     placeholder="Jane Smith"/>
+            </div>
+            <div class="row pilot__info individual">
+              <label for="realtorEmail">E-Mail</label>
+              <input [(ngModel)]="createRealtorUserDetails.email" type="text" name="realtorEmail" id="realtorEmail"
+                     placeholder="mail@mail.com"/>
+            </div>
+            <div class="row pilot__info individual">
+              <label for="realtorPassword">Password</label>
+              <input [(ngModel)]="createRealtorUserDetails.password" type="password" name="realtorPassword"
+                     id="realtorPassword"
+                     placeholder="********"/>
+            </div>
+            <div class="row pilot__info individual">
+              <label for="realtorNmls">NMLS #</label>
+              <input [(ngModel)]="createRealtorUserDetails.nmls" type="text" name="realtorNmls" id="realtorNmls"
+                     placeholder="Example Title"/>
+            </div>
+            <div class="row pilot__info individual">
+              <label for="realtorBrokerCompany">BrokerCompany</label>
+              <div *ngIf="brokerSelected != null">
+                <select id="realtorBrokerCompany" class="js-example-basic-single" [(ngModel)]="brokerSelected">
+                  <option *ngFor="let x of brokers" [ngValue]="x">{{x.brokerName}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row pilot__info individual">
+              <label for="realtorPhone">Realtor Cell</label>
+              <input [(ngModel)]="createRealtorUserDetails.phoneNumber" type="text" name="realtorPhone"
+                     id="realtorPhone"
+                     placeholder="(952) 255-1111"/>
+            </div>
+          </div>
+
+          <div *ngIf="userTypeSelected.roleType==='BROKER'">
+            <div class="row pilot__info individual">
+              <label for="brokerName">Broker Name</label>
+              <input [(ngModel)]="createBrokerUserDetails.userName" type="text" name="brokerName" id="brokerName"
+                     placeholder="Jane Smith"/>
+            </div>
+            <div class="row pilot__info individual">
+              <label for="brokerEmail">E-Mail</label>
+              <input [(ngModel)]="createBrokerUserDetails.email" type="text" name="brokerEmail" id="brokerEmail"
+                     placeholder="mail@mail.com"/>
+            </div>
+            <div class="row pilot__info individual">
+              <label for="brokerPassword">Password</label>
+              <input [(ngModel)]="createBrokerUserDetails.password" type="password" name="brokerPassword"
+                     id="brokerPassword"
+                     placeholder="********"/>
+            </div>
+            <div class="row pilot__info individual">
+              <label for="brokderNrds">NRDS #</label>
+              <input [(ngModel)]="createBrokerUserDetails.nrds" type="text" name="brokderNrds" id="brokderNrds"
+                     placeholder="Example Title"/>
+            </div>
+            <div class="row pilot__info individual">
+              <label for="BrokerCompany">BrokerCompany</label>
+              <div *ngIf="brokerSelected != null">
+                <select id="BrokerCompany" class="js-example-basic-single" [(ngModel)]="brokerSelected">
+                  <option *ngFor="let x of brokers" [ngValue]="x">{{x.brokerName}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row pilot__info individual">
+              <label for="brokerPhone">Broker Cell</label>
+              <input [(ngModel)]="createBrokerUserDetails.phoneNumber" type="text" name="brokerPhone"
+                     id="brokerPhone"
+                     placeholder="(952) 255-1111"/>
+            </div>
+          </div>
+
+          <div *ngIf="userTypeSelected.roleType==='CLOSER'">
+            <div class="row pilot__info individual">
+              <label for="closerName">Closer Name</label>
+              <input [(ngModel)]="createCloserUserDetails.userName" type="text" name="closerName" id="closerName"
+                     placeholder="Jane Smith"/>
+            </div>
+            <div class="row pilot__info individual">
+              <label for="closerEmail">E-Mail</label>
+              <input [(ngModel)]="createCloserUserDetails.email" type="text" name="closerEmail" id="closerEmail"
+                     placeholder="mail@mail.com"/>
+            </div>
+            <div class="row pilot__info individual">
+              <label for="closerPassword">Password</label>
+              <input [(ngModel)]="createCloserUserDetails.password" type="password" name="closerPassword"
+                     id="closerPassword"
+                     placeholder="********"/>
+            </div>
+            <div class="row pilot__info individual">
+              <label for="CloserCompany">CloserCompany</label>
+              <div *ngIf="closerCompanySelected != null">
+                <select id="CloserCompany" class="js-example-basic-single" [(ngModel)]="closerCompanySelected">
+                  <option *ngFor="let x of closers" [ngValue]="x">{{x.closerCompanyName}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row pilot__info individual">
+              <label for="closerPhone">Broker Cell</label>
+              <input [(ngModel)]="createCloserUserDetails.phoneNumber" type="text" name="closerPhone"
+                     id="closerPhone"
+                     placeholder="(952) 255-1111"/>
+            </div>
+          </div>
+        </div>
+        <input class="pilot__submit" type="submit" value="Continue" (click)="register()"/>
+      </div>
+
+    </div>
+  </main>
+  </body>
+</div>

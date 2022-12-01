@@ -1,0 +1,66 @@
+<div class="font-type">
+  <body>
+  <header>
+    <article class="toolbar">
+      <img [routerLink]="['/home']" class="toolbar__img" src="assets/img/image2vector.svg" alt="reapay.io">
+      <div class="toolbar__btn">
+                    <span>
+                        <button onclick="window.location.href = '/dashboard.html'; return false;">dashboard</button>
+                    </span>
+        <button>LOG IN</button>
+      </div>
+    </article>
+  </header>
+  <main>
+    <div class="funds">
+
+      <div class="funds__header">
+
+        <span>STEP 2 / 2</span>
+        <h1>Realtor Funds Disbursement</h1>
+        <p>MLG Title is scheduled to disburse the following amounts to Project52 Media LLC. Selections can be changed at
+          anytime prior to close of escrow. How would you like to receive these funds?</p>
+
+      </div>
+
+      <div class="funds__body">
+
+        <form action="" method="" autocomplete="off" class="funds__form">
+          <div class="funds__form-field funds__form-field--input">
+            <div class="row pilot__info individual">
+              <label for="project52_media_llc">Project52 Media LLC</label>
+              <input type="text" name="project52_media_llc" id="project52_media_llc" placeholder="" value="$4,407.75"/>
+            </div>
+          </div>
+          <div class="funds__form-field funds__form-field--option">
+            <div>
+              <label>
+                                <span>
+                                    <input type="checkbox" name="">
+                                    <u>Collect check at closing.</u>
+                                </span>
+              </label>
+            </div>
+            <div>
+              <label>
+                                <span>
+                                    <input type="checkbox" name="" disabled>
+                                    <u>Electronic transfer to: <i>Coming Soon</i></u>
+                                </span>
+              </label>
+            </div>
+          </div>
+          <div class="funds__form-field funds__form-field--btn">
+            <button type="submit" [routerLink]="['/details']">CONTINUE</button>
+          </div>
+          <div class="funds__form-field funds__form-field--info">
+            <p>You can edit the transaction details from the dashboard at anytime prior to close of escrow.</p>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </main>
+  </body>
+</div>
